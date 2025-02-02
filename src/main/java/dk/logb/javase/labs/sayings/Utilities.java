@@ -45,19 +45,23 @@ public class Utilities {
         return dp[len1][len2];
     }
 
+    /**
+     * Splits a string into a list of words using all non-letters as delimiters
+     *
+     * @param input the string to split
+     * @return the list of words, sequence maintained
+     */
     public static List<String> tokenize(String input) {
-        // Split på alle tegn, som ikke er bogstaver (uanset sprog)
-        // Brug 'split("\\P{L}+")' for at opdele i ord
+        // Split into tokens by all non-letter characters
         String[] rawTokens = input.split("\\P{L}+");
 
         List<String> tokenList = new ArrayList<>();
         for (String token : rawTokens) {
-            // Filtrér tomme tokens fra (kan opstå ved split i starten/slutningen)
+            // filter out empty tokens (can emerge from beginning or end of input)
             if (!token.isEmpty()) {
                 tokenList.add(token);
             }
         }
-
         return tokenList;
     }
 

@@ -18,6 +18,7 @@ public class SayingApp {
     public static void main(String[] args) {
         Path filePath = Path.of("./src/main/java/dk/logb/javase/labs/sayings/talemaader_leverance_1.csv");
 
+        //build list of sayings (ordsprog/talemaader)
         List<Saying> list = new ArrayList<>();
         try (var lines = Files.lines(filePath).skip(1)) {
             lines.forEach(line ->{
